@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        applicationId "com.liuhui.fbreadersample"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+
+        ndk {
+            moduleName "DeflatingDecompressor-v3"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+        sourceSets {
+            main {
+                jni.srcDirs = []
+            }
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    compile project(':ambilWarna')
+    compile project(':code')
+    compile project(':library')
+    compile project(':superToasts')
+    compile 'com.android.support:support-v4:22.1.0'
+    compile files('libs/LingvoIntegration_2.5.2.12.jar')
+    compile files('libs/httpmime-4.2.5.jar')
+    compile files('libs/json-simple-1.1.1.jar')
+    compile files('libs/nanohttpd-2.0.5.jar')
+    compile files('libs/open-dictionary-api-1.2.1.jar')
+    compile files('libs/pdfparse.jar')
+    compile 'com.android.support:appcompat-v7:22.1.1'
+    compile 'com.yanzhenjie.nohttp:nohttp:1.1.1'
+}
