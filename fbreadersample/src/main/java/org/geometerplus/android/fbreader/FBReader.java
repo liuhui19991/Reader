@@ -40,6 +40,7 @@ import android.widget.RelativeLayout;
 
 import com.liuhui.fbreadersample.BaseBookEntity;
 import com.liuhui.fbreadersample.ConstantValue;
+import com.liuhui.fbreadersample.PopDialog;
 import com.liuhui.fbreadersample.R;
 
 import org.geometerplus.android.fbreader.api.ApiListener;
@@ -166,10 +167,10 @@ public final class FBReader extends FBReaderMainActivity implements ZLApplicatio
            /* final Uri data = intent.getData();
             if (data != null) {
                 myBook = createBookForFile(ZLFile.createFileByPath(data.getPath()));
-            }*///这里是原代码,下边为新添加
+            }*///liuhuireader 这里是原代码,下边为新添加
             BaseBookEntity baseBookEntity = (BaseBookEntity) intent.getSerializableExtra(ConstantValue.BASEBOOK);
             Uri data = Uri.parse(baseBookEntity.getBook_path());
-            if (data!=null) {
+            if (data != null) {
                 myBook = createBookForFile(ZLFile.createFileByPath(data.getPath()));
             }
         }
@@ -352,7 +353,7 @@ public final class FBReader extends FBReaderMainActivity implements ZLApplicatio
     public boolean onPrepareOptionsMenu(Menu menu) {
         setStatusBarVisibility(true);
         setupMenu(menu);
-
+        PopDialog.showPopwindow(getApplicationContext(), this, R.layout.readsetting);
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -808,8 +809,8 @@ public final class FBReader extends FBReaderMainActivity implements ZLApplicatio
         }
     }
 
-    private void setupMenu(Menu menu) {
-        final String menuLanguage = ZLResource.getLanguageOption().getValue();
+    private void setupMenu(Menu menu) {  //liuhuireader 注掉这里可以阻止原来的菜单弹窗
+      /*  final String menuLanguage = ZLResource.getLanguageOption().getValue();
         if (menuLanguage.equals(myMenuLanguage)) {
             return;
         }
@@ -829,8 +830,7 @@ public final class FBReader extends FBReaderMainActivity implements ZLApplicatio
                 }
             }
         }
-
-        refresh();
+        refresh();*/
     }
 
     @Override
@@ -1032,7 +1032,7 @@ public final class FBReader extends FBReaderMainActivity implements ZLApplicatio
         exception.printStackTrace(new PrintWriter(stackTrace));
         intent.putExtra(ErrorKeys.STACKTRACE, stackTrace.toString());
         /*
-		if (exception instanceof BookReadingException) {
+        if (exception instanceof BookReadingException) {
 			final ZLFile file = ((BookReadingException)exception).File;
 			if (file != null) {
 				intent.putExtra("file", file.getPath());

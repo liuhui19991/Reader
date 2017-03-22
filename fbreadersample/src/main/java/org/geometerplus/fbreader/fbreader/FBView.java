@@ -141,7 +141,7 @@ public final class FBView extends ZLTextView {
             return;
         }
 
-        onFingerSingleTapLastResort(x, y);//liuhuireader 注掉这里可以阻止原来的菜单弹窗
+        onFingerSingleTapLastResort(x, y);
     }
 
     @Override

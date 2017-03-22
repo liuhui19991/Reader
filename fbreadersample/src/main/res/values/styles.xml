@@ -1,4 +1,5 @@
 <resources>
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -17,14 +18,25 @@
         colorAccent 对应EditText编辑时、RadioButton选中、CheckBox等选中时的颜色。-->
         <!-- 好像这里设置的转场动画当设置<item name="android:windowIsTranslucent">true</item>的时候没有用-->
     </style>
-  <style name="FBReader.Activity" parent="android:Theme">
-  </style>
-  <style name="FBReader.Activity.NoActionBar" parent="android:Theme">
-  </style>
-  <style name="FBReader.Dialog" parent="android:Theme.Dialog">
-	</style>
-	<color name="transparent">#00000000</color>
-  <style name="FBReader.Transparent" parent="android:Theme.Translucent.NoTitleBar">
-    <item name="android:windowBackground">@color/transparent</item>
-  </style>
+
+    <style name="FBReader.Activity" parent="android:Theme">
+    </style>
+
+    <style name="FBReader.Activity.NoActionBar" parent="android:Theme">
+    </style>
+
+    <style name="FBReader.Dialog" parent="android:Theme.Dialog">
+    </style>
+
+    <color name="transparent">#00000000</color>
+
+    <style name="FBReader.Transparent" parent="android:Theme.Translucent.NoTitleBar">
+        <item name="android:windowBackground">@color/transparent</item>
+    </style>
+
+    <!--  popwindow显示和消失动画 -->
+    <style name="mypopwindow_anim_style">
+        <item name="android:windowEnterAnimation">@anim/popshow_anim</item>
+        <item name="android:windowExitAnimation">@anim/pophidden_anim</item>
+    </style>
 </resources>
