@@ -272,7 +272,7 @@ public class ZLAndroidWidget extends MainView implements ZLViewWidget, View.OnLo
     }
 
     private void drawFooter(Canvas canvas, AnimationProvider animator) {
-        final ZLView view = ZLApplication.Instance().getCurrentView();
+       /* final ZLView view = ZLApplication.Instance().getCurrentView();
         final ZLView.FooterArea footer = view.getFooterArea();
 
         if (footer == null) {
@@ -307,7 +307,7 @@ public class ZLAndroidWidget extends MainView implements ZLViewWidget, View.OnLo
             animator.drawFooterBitmap(canvas, myFooterBitmap, voffset);
         } else {
             canvas.drawBitmap(myFooterBitmap, 0, voffset, myPaint);
-        }
+        }*///liuhuireader 隐藏原底部显示
     }
 
     private void onDrawStatic(final Canvas canvas) {
@@ -578,8 +578,9 @@ public class ZLAndroidWidget extends MainView implements ZLViewWidget, View.OnLo
     }
 
     private int getMainAreaHeight() {
-        final ZLView.FooterArea footer = ZLApplication.Instance().getCurrentView().getFooterArea();
-        return footer != null ? getHeight() - footer.getHeight() : getHeight();
+        /*final ZLView.FooterArea footer = ZLApplication.Instance().getCurrentView().getFooterArea();
+        return footer != null ? getHeight() - footer.getHeight() : getHeight();*///liuhuireader 去掉底部栏显示
+        return getHeight();
     }
 
     @Override
