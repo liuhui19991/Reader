@@ -19,26 +19,25 @@
 
 package org.geometerplus.android.fbreader;
 
+import org.geometerplus.android.fbreader.api.FBReaderIntents;
 import org.geometerplus.fbreader.fbreader.FBReaderApp;
 
-import org.geometerplus.android.fbreader.api.FBReaderIntents;
-
 class ShowCancelMenuAction extends FBAndroidAction {
-	ShowCancelMenuAction(FBReader baseActivity, FBReaderApp fbreader) {
-		super(baseActivity, fbreader);
-	}
+    ShowCancelMenuAction(FBReader baseActivity, FBReaderApp fbreader) {
+        super(baseActivity, fbreader);
+    }
 
-	@Override
-	protected void run(Object ... params) {
-		if (!Reader.jumpBack()) {
-			if (Reader.hasCancelActions()) {
-				BaseActivity.startActivityForResult(
-					FBReaderIntents.defaultInternalIntent(FBReaderIntents.Action.CANCEL_MENU),
-					FBReader.REQUEST_CANCEL_MENU
-				);
-			} else {
-				Reader.closeWindow();
-			}
-		}
-	}
+    @Override
+    protected void run(Object... params) {
+        if (!Reader.jumpBack()) {
+            if (Reader.hasCancelActions()) {
+                BaseActivity.startActivityForResult(
+                        FBReaderIntents.defaultInternalIntent(FBReaderIntents.Action.CANCEL_MENU),
+                        FBReader.REQUEST_CANCEL_MENU
+                );//liuhuireader 按下返回按钮时候调用,弹出CancelActivity,此处通过action来对应activity
+            } else {
+                Reader.closeWindow();
+            }
+        }
+    }
 }

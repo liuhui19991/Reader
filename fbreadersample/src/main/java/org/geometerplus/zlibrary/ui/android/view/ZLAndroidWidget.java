@@ -29,10 +29,10 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
-import android.widget.Toast;
 
 import org.geometerplus.android.fbreader.FBReader;
 import org.geometerplus.fbreader.Paths;
+import org.geometerplus.fbreader.fbreader.FBReaderApp;
 import org.geometerplus.zlibrary.core.application.ZLApplication;
 import org.geometerplus.zlibrary.core.application.ZLKeyBindings;
 import org.geometerplus.zlibrary.core.util.SystemInfo;
@@ -47,6 +47,8 @@ import org.geometerplus.zlibrary.ui.android.view.animation.SlideOldStyleAnimatio
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import static org.geometerplus.fbreader.fbreader.options.CancelMenuHelper.ActionType.close;
 
 public class ZLAndroidWidget extends MainView implements ZLViewWidget, View.OnLongClickListener {
     public final ExecutorService PrepareService = Executors.newSingleThreadExecutor();
@@ -494,7 +496,6 @@ public class ZLAndroidWidget extends MainView implements ZLViewWidget, View.OnLo
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         final ZLApplication application = ZLApplication.Instance();
         final ZLKeyBindings bindings = application.keyBindings();
-        Toast.makeText(getContext(), "dianji按键", Toast.LENGTH_SHORT).show();
         if (bindings.hasBinding(keyCode, true) ||
                 bindings.hasBinding(keyCode, false)) {
             if (myKeyUnderTracking != -1) {
@@ -509,7 +510,9 @@ public class ZLAndroidWidget extends MainView implements ZLViewWidget, View.OnLo
                 myTrackingStartTime = System.currentTimeMillis();
                 return true;
             } else {
-                return application.runActionByKey(keyCode, false);
+//                return application.runActionByKey(keyCode, false);//liuhuireader 返回按钮点击调用
+                ((FBReaderApp) FBReaderApp.Instance()).runCancelAction(close, null);
+                return true;
             }
         } else {
             return false;

@@ -19,13 +19,19 @@
 
 package org.geometerplus.fbreader.fbreader.options;
 
-import java.util.*;
-
+import org.geometerplus.zlibrary.core.options.ZLColorOption;
+import org.geometerplus.zlibrary.core.options.ZLEnumOption;
+import org.geometerplus.zlibrary.core.options.ZLIntegerOption;
+import org.geometerplus.zlibrary.core.options.ZLStringOption;
 import org.geometerplus.zlibrary.core.util.ZLColor;
-import org.geometerplus.zlibrary.core.options.*;
 import org.geometerplus.zlibrary.core.view.ZLPaintContext;
 
-public class ColorProfile {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+
+public class ColorProfile {//liuhuireader 有关颜色的类
 	public static final String DAY = "defaultLight";
 	public static final String NIGHT = "defaultDark";
 
@@ -107,7 +113,7 @@ public class ColorProfile {
 			FillModeOption =
 				new ZLEnumOption<ZLPaintContext.FillMode>("Colors", name + ":FillMode", ZLPaintContext.FillMode.tile);
 			BackgroundOption =
-				createOption(name, "Background", 0, 0, 0);
+				createOption(name, "Background", 0, 0, 0);//夜间模式的背景色
 			SelectionBackgroundOption =
 				createOption(name, "SelectionBackground", 82, 131, 194);
 			SelectionForegroundOption =
@@ -116,8 +122,10 @@ public class ColorProfile {
 				createOption(name, "Highlighting", 96, 96, 128);
 			HighlightingForegroundOption =
 				createNullOption(name, "HighlightingForeground");
+//			RegularTextOption =
+//				createOption(name, "Text", 192, 192, 192);//文字颜色
 			RegularTextOption =
-				createOption(name, "Text", 192, 192, 192);
+				createOption(name, "Text", 41, 62, 65);
 			HyperlinkTextOption =
 				createOption(name, "Hyperlink", 60, 142, 224);
 			VisitedHyperlinkTextOption =
