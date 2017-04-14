@@ -37,9 +37,9 @@ class SetScreenOrientationAction extends FBAndroidAction {
 		} else if (ZLibrary.SCREEN_ORIENTATION_LANDSCAPE.equals(optionValue)) {
 			orientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
 		} else if (ZLibrary.SCREEN_ORIENTATION_REVERSE_PORTRAIT.equals(optionValue)) {
-			orientation = 9; // ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT
+			orientation = ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT; // 9 //解决报错,把数字用前面常量代替
 		} else if (ZLibrary.SCREEN_ORIENTATION_REVERSE_LANDSCAPE.equals(optionValue)) {
-			orientation = 8; // ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE
+			orientation = ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE; // 8
 		}
 		activity.setRequestedOrientation(orientation);
 	}

@@ -25,7 +25,7 @@ import org.geometerplus.zlibrary.text.view.style.ZLTextStyleCollection;
 
 import org.geometerplus.fbreader.fbreader.FBView;
 
-public class ViewOptions {
+public class ViewOptions {//liuhuireader 这个类是配置各view的位置
 	public final ZLBooleanOption TwoColumnView;
 	public final ZLIntegerRangeOption LeftMargin;
 	public final ZLIntegerRangeOption RightMargin;
@@ -54,10 +54,14 @@ public class ViewOptions {
 			new ZLIntegerRangeOption("Options", "LeftMargin", 0, 100, horMargin);
 		RightMargin =
 			new ZLIntegerRangeOption("Options", "RightMargin", 0, 100, horMargin);
+//		TopMargin =
+//			new ZLIntegerRangeOption("Options", "TopMargin", 0, 100, 0);
+//		BottomMargin =
+//			new ZLIntegerRangeOption("Options", "BottomMargin", 0, 100, 4);//liuhuireader 小说显示距离底部距离
 		TopMargin =
-			new ZLIntegerRangeOption("Options", "TopMargin", 0, 100, 0);
+				new ZLIntegerRangeOption("Options", "TopMargin", 0, 100, 50);//liuhuireader 小说显示距离顶部距离
 		BottomMargin =
-			new ZLIntegerRangeOption("Options", "BottomMargin", 0, 100, 4);
+			new ZLIntegerRangeOption("Options", "BottomMargin", 0, 100, 50);
 		SpaceBetweenColumns =
 			new ZLIntegerRangeOption("Options", "SpaceBetweenColumns", 0, 300, 3 * horMargin);
 		ScrollbarType =

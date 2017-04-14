@@ -58,8 +58,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.reader:
                 //                startActivity(new Intent(MainActivity.this, FBReader.class));
                 BaseBookEntity baseBookEntity = new BaseBookEntity();
-//                baseBookEntity.setBook_path(mDown + "/baok.epub");
-                baseBookEntity.setBook_path(online);
+                baseBookEntity.setBook_path(mDown + "/book.epub");
+//                baseBookEntity.setBook_path(online);
                 startBookFBReaderActivity(MainActivity.this, baseBookEntity);
                 break;
             default:
