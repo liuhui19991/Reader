@@ -134,7 +134,8 @@ public class PopDialog {
     private static void init(View view, final PopupWindow window, final Context context, final Activity activity) {
         TextView options = (TextView) view.findViewById(R.id.tv_options);
         TextView dayAndNight = (TextView) view.findViewById(R.id.tv_dayandnight);
-        TextView bookmenu = (TextView) view.findViewById(R.id.book_menu);
+        TextView bookMenu = (TextView) view.findViewById(R.id.book_menu);
+        TextView readSetting = (TextView) view.findViewById(R.id.read_setting);
         //设置点击事件监听
         options.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,14 +160,20 @@ public class PopDialog {
             }
         });
 
-        bookmenu.setOnClickListener(new View.OnClickListener() {
+        bookMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 myFBReaderApp.runAction(ActionCode.SHOW_TOC);
                 closePopDialog(window);
             }
         });
-
+        readSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myFBReaderApp.runAction(ActionCode.SHOW_PREFERENCES);
+                closePopDialog(window);
+            }
+        });
     }
 
     /**
